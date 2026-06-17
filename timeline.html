@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Journey ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(
+135deg,
+#ff9a9e,
+#fad0c4,
+#fbc2eb,
+#a18cd1
+);
+
+min-height:100vh;
+overflow-x:hidden;
+padding:50px 20px;
+}
+
+h1{
+
+text-align:center;
+color:white;
+font-size:3rem;
+margin-bottom:60px;
+
+}
+
+.timeline{
+
+position:relative;
+max-width:1000px;
+margin:auto;
+
+}
+
+.timeline::after{
+
+content:"";
+
+position:absolute;
+
+width:6px;
+
+background:white;
+
+top:0;
+bottom:0;
+
+left:50%;
+
+margin-left:-3px;
+
+}
+
+.memory{
+
+position:relative;
+
+width:50%;
+
+padding:20px 40px;
+
+}
+
+.memory.left{
+left:0;
+}
+
+.memory.right{
+left:50%;
+}
+
+.content{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(10px);
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+animation:fadeUp 1s;
+
+}
+
+.content img{
+
+width:100%;
+height:250px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+margin-bottom:15px;
+
+}
+
+.content h2{
+color:rgb(255, 255, 255);
+margin-bottom:10px;
+}
+
+.content p{
+color:rgb(255, 255, 255);
+line-height:2.5;
+}
+.date{
+
+color:white;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.memory::after{
+
+content:"❤️";
+
+position:absolute;
+
+top:30px;
+
+right:-15px;
+
+font-size:25px;
+
+}
+
+.memory.right::after{
+
+left:-15px;
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.next{
+
+display:block;
+
+margin:50px auto;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4081;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+.heart{
+
+position:fixed;
+
+pointer-events:none;
+
+animation:floatHeart linear infinite;
+
+}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+@media(max-width:768px){
+
+.timeline::after{
+left:20px;
+}
+
+.memory{
+
+width:100%;
+
+padding-left:60px;
+
+padding-right:20px;
+
+}
+
+.memory.right{
+left:0;
+}
+
+.memory::after{
+left:5px;
+}
+
+}
+/* Image Popup */
+
+.popup{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:15px;
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
+}
+
+.content img{
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.content img:hover{
+    transform:scale(1.03);
+}
+
+</style>
+
+</head>
+
+<body>
+    <!-- Image Popup -->
+<div id="imagePopup" class="popup">
+    <span class="close">&times;</span>
+    <img class="popup-img" id="popupImg">
+</div>
+
+<h1>Our Beautiful Journey ❤️</h1>
+
+<div class="timeline">
+
+<div class="memory left">
+
+<div class="content">
+
+<div class="date">
+📅 First Meeting
+</div>
+<audio id="bgMusic" autoplay loop>
+    <source src="./pyar bolda.mpeg"type="audio/mpeg">
+</audio>
+<div id="timestamp"></div>
+
+<img src="starting.jpeg">
+
+<h2>Where It All Started ❤️</h2>
+
+<p>
+This was the day everything changed.
+sab to shona din jidn meri life di sab to special chij hoyi se🥹🤞.
+</p>
+
+</div>
+</div>
+
+<div class="memory right">
+
+<div class="content">
+
+<div class="date">
+📅 Favourite Moment
+</div>
+
+<img src="cuttiee.jpeg">
+
+<h2>Pure Happiness ❤️</h2>
+
+<p>
+jad tusi mera nl se oh moment bhot special hune aa mera lyi puttu💖<br>mera shona baachaaa Love u mera bndrrr...
+</p>
+
+</div>
+
+</div>
+
+<div class="memory left">
+
+<div class="content">
+
+<div class="date">
+📅 Special Day
+</div>
+
+<img src="first pic.jpeg">
+
+<h2>Forever Memory ❤️</h2>
+
+<p>
+har ik pal jo thode nal bitya oh me kde ni bhul skdi...<br> ho sab to shoniya yaad aa ne meri aa kakee😘👀.
+</p>
+
+</div>
+
+</div>
+
+<div class="memory right">
+
+<div class="content">
+
+<div class="date">
+📅 Today
+</div>
+
+<img src="how it's going.jpeg">
+
+<h2>Happy Birthday Jass Rai ❤️</h2>
+
+<p>
+May this year bring endless happiness,
+success and love into your life💖🪬<br>tusi hmesha khush rho te menu tg krde rho jnnuu😚✨...
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<button
+class="next"
+onclick="nextPage()">
+
+Open Letter ❤️
+
+</button>
+
+<script>
+  const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.addEventListener("loadedmetadata", () => {
+    bgMusic.currentTime = 110;
+    bgMusic.play().catch(()=>{});
+});
+
+window.addEventListener("click", () => {
+    bgMusic.currentTime = 110;
+    bgMusic.play();
+}, { once: true });
+
+
+function nextPage(){
+
+window.location.href=
+"letter.html";
+
+}
+
+for(let i=0;i<60;i++){
+
+let heart=
+document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(15+Math.random()*20)+"px";
+
+heart.style.animationDuration=
+(5+Math.random()*10)+"s";
+
+document.body.appendChild(heart);
+
+}
+// Image Viewer
+
+const images = document.querySelectorAll(".content img");
+const popup = document.getElementById("imagePopup");
+const popupImg = document.getElementById("popupImg");
+const closeBtn = document.querySelector(".close");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        popup.style.display = "flex";
+        popupImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+popup.addEventListener("click", (e) => {
+    if(e.target === popup){
+        popup.style.display = "none";
+    }
+});
+
+</script>
+
+</body>
+</html>

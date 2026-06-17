@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Jass Rai ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+background:
+linear-gradient(
+135deg,
+#0f0c29,
+#302b63,
+#24243e
+);
+
+position:relative;
+}
+
+h1{
+
+font-size:4rem;
+color:white;
+
+text-align:center;
+
+text-shadow:
+0 0 20px #fff,
+0 0 40px #ff69b4,
+0 0 60px #ff1493;
+
+animation:glow 2s infinite alternate;
+
+z-index:10;
+}
+
+@keyframes glow{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.05);
+}
+
+}
+
+.message{
+
+color:white;
+
+font-size:1.5rem;
+
+margin-top:20px;
+
+text-align:center;
+
+max-width:800px;
+
+z-index:10;
+}
+
+.cake{
+
+font-size:120px;
+
+margin:30px 0;
+
+animation:bounce 2s infinite;
+
+z-index:10;
+}
+
+@keyframes bounce{
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+.balloon{
+
+position:absolute;
+
+font-size:45px;
+
+animation:balloonFloat linear infinite;
+
+}
+
+@keyframes balloonFloat{
+
+0%{
+transform:translateY(100vh);
+}
+
+100%{
+transform:translateY(-120vh);
+}
+
+}
+
+.heart{
+
+position:absolute;
+
+font-size:25px;
+
+animation:heartFloat linear infinite;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+.rose{
+
+position:absolute;
+
+top:-50px;
+
+font-size:30px;
+
+animation:roseFall linear forwards;
+
+}
+
+@keyframes roseFall{
+
+100%{
+transform:
+translateY(120vh)
+rotate(720deg);
+
+opacity:0;
+}
+
+}
+
+.firework{
+
+position:absolute;
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:white;
+
+animation:explode 1.5s linear forwards;
+
+}
+
+@keyframes explode{
+
+0%{
+transform:scale(1);
+opacity:1;
+}
+
+100%{
+transform:scale(25);
+opacity:0;
+}
+
+}
+
+.end{
+
+margin-top:20px;
+
+color:gold;
+
+font-size:1.3rem;
+
+font-weight:bold;
+
+z-index:10;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" autoplay loop>
+    <source src="./jaan song sidhu.mpeg" type="audio/mpeg">
+</audio>
+
+<h1>
+🎉 HAPPY BIRTHDAY 🎉
+<br>
+JASS RAI ❤️
+</h1>
+
+<div class="cake">
+🎂
+</div>
+
+<div class="message">
+<h1>Eh song thode lyi jnnuu😚🌸🫂🧿</h1><br>
+<h3> your life be filled with happiness,
+success, love, beautiful memories,
+and countless reasons to smile.
+Today is all about YOU ❤️ so injoy drink na kro bs baby okhh</h3><br>
+<h2>I love u so much🥹💖🤞🪬</h2>
+<h4>Hope thonu mera eh effort thoda ta vadia lgya hoyu👀thode face te thodi ta smile aayi hoyu 🥹💗but i miss that moment 😫miss u mera sardar ji😘🔐te please menu msg kr ke dso v thonu eh sab kiva da lgyai am waiting for your msg jnnuu😚✨ </h4>
+</div>
+
+<div class="end">
+
+✨ Thank You For Being Amazing ✨
+
+</div>
+
+<script>
+   const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.addEventListener("loadedmetadata", () => {
+    bgMusic.currentTime = 12;
+    bgMusic.play().catch(()=>{});
+});
+
+window.addEventListener("click", () => {
+    bgMusic.currentTime = 12;
+    bgMusic.play();
+}, { once: true });
+/* BALLOONS */
+
+for(let i=0;i<25;i++){
+
+let balloon =
+document.createElement("div");
+
+balloon.className="balloon";
+
+balloon.innerHTML="🎈";
+
+balloon.style.left=
+Math.random()*100+"vw";
+
+balloon.style.animationDuration=
+(8+Math.random()*8)+"s";
+
+document.body.appendChild(balloon);
+
+}
+
+/* HEARTS */
+
+for(let i=0;i<80;i++){
+
+let heart =
+document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(5+Math.random()*10)+"s";
+
+document.body.appendChild(heart);
+
+}
+
+/* ROSES */
+
+setInterval(()=>{
+
+let rose=
+document.createElement("div");
+
+rose.className="rose";
+
+rose.innerHTML="🌹";
+
+rose.style.left=
+Math.random()*100+"vw";
+
+rose.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+document.body.appendChild(rose);
+
+setTimeout(()=>{
+rose.remove();
+},10000);
+
+},300);
+
+/* FIREWORKS */
+
+setInterval(()=>{
+
+let firework=
+document.createElement("div");
+
+firework.className="firework";
+
+firework.style.left=
+Math.random()*100+"vw";
+
+firework.style.top=
+Math.random()*70+"vh";
+
+document.body.appendChild(firework);
+
+setTimeout(()=>{
+firework.remove();
+},1500);
+
+},250);
+
+</script>
+
+</body>
+</html>

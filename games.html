@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Games ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:linear-gradient(
+135deg,
+#ff9a9e,
+#fad0c4,
+#fbc2eb,
+#a18cd1
+);
+
+min-height:100vh;
+
+padding:30px;
+
+overflow-x:hidden;
+
+position:relative;
+}
+
+h1{
+
+text-align:center;
+
+color:white;
+
+margin-bottom:30px;
+
+font-size:3rem;
+}
+
+.section{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(12px);
+
+padding:25px;
+
+border-radius:25px;
+
+margin-bottom:30px;
+
+color:white;
+
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.section h2{
+
+margin-bottom:15px;
+}
+
+.memory-game{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,90px);
+
+gap:15px;
+
+justify-content:center;
+
+margin-top:20px;
+
+}
+
+.card{
+
+width:90px;
+height:90px;
+
+background:white;
+
+border-radius:15px;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+font-size:40px;
+
+cursor:pointer;
+
+user-select:none;
+
+transition:.3s;
+}
+
+.card.flipped{
+
+background:#ffe6f2;
+
+}
+
+.card.matched{
+
+background:#90ee90;
+
+pointer-events:none;
+
+}
+
+#status{
+
+text-align:center;
+
+margin-top:20px;
+
+font-size:22px;
+
+font-weight:bold;
+}
+
+.quiz{
+
+text-align:center;
+}
+
+.quiz button{
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:25px;
+
+cursor:pointer;
+
+margin:10px;
+
+font-size:16px;
+}
+
+.correct{
+
+background:#4CAF50;
+color:white;
+}
+
+.wrong{
+
+background:#ff4081;
+color:white;
+}
+
+#quizResult{
+
+margin-top:15px;
+
+font-size:20px;
+font-weight:bold;
+}
+
+.surprise{
+
+text-align:center;
+}
+
+.surprise button{
+
+padding:15px 30px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+background:#ff4081;
+
+color:white;
+
+font-size:18px;
+}
+
+#secret{
+
+display:none;
+
+margin-top:20px;
+
+font-size:24px;
+
+font-weight:bold;
+}
+
+.nextBtn{
+
+display:block;
+
+margin:40px auto;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:40px;
+
+background:white;
+
+color:#ff4081;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+.heart{
+
+position:fixed;
+
+pointer-events:none;
+
+animation:floatHeart linear infinite;
+
+}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+.petal{
+
+position:fixed;
+
+top:-50px;
+
+font-size:28px;
+
+pointer-events:none;
+
+animation:petalFall linear forwards;
+
+}
+.video{
+    height: 500px;
+    width: 500px;
+}
+
+@keyframes petalFall{
+
+100%{
+transform:
+translateY(120vh)
+rotate(720deg);
+
+opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+<audio id="bgMusic" autoplay loop>
+    <source src="./mutiyarr.mpeg" type="audio/mpeg">
+</audio>
+
+<h1>🎮 Birthday Fun Zone ❤️</h1>
+
+<div class="section">
+
+<h2>Memory Match Game ❤️</h2>
+
+<p>Match all pairs to win.</p>
+
+<div class="memory-game" id="game"></div>
+
+<p id="status"></p>
+
+</div>
+
+<div class="section quiz">
+
+<h2>Birthday Quiz ❤️</h2>
+
+<p>tusi sirf or sirf mera ho na😌te tusi menu pyr krde ho na🤔?</p>
+
+<button
+class="correct"
+onclick="correctAnswer()">
+
+hnji putt💖
+
+</button>
+
+<button
+class="wrong"
+onclick="wrongAnswer()">
+
+pata ni😅
+
+</button>
+
+<p id="quizResult"></p>
+
+</div>
+
+<div class="section surprise">
+
+<h2>Secret Surprise 🎁</h2>
+
+<button onclick="showSecret()">
+
+Unlock Surprise ❤️
+
+</button>
+
+<div id="secret">
+    <video src="suprise.mp4" controls loop muted autoplay class="video"></video><br>
+
+✨ My Dearest Jass Rai ❤️,<br>
+
+Happy Birthday jnnuu 🎂💖<br>
+
+Ajj da din mere layi bohot special aa, kyuki ajj oh insaan duniya ch aaya si jo meri smile da reason ban gya. 🥹🫶<br>
+
+Mainu pata aa main har vaar apni feelings words ch explain nahi kar sakdi, par ik gall hamesha sach rahegi — tusi mere layi bohot important ho. Jadon vi mera din kharab hove, thodi ik message ya ik choti ji gall vi mera mood better kar dindi aa. ❤️<br>
+
+Thank you mere naal rehna layi, menu samajhna layi, te meri life da ena beautiful part bann layi. Tuhade naal gallan karna, hassna, ya sirf thoda naam dekhna vi mere face te smile le aunda aa. ✨<br>
+
+Ajj thode birthday te meri sirf eh dua aa ki Rab thonu hamesha khush rakhe, tandrust rakhe te thode sare supne poore kare. Tusi life ch bohot successful hovo te har oh cheez hasil karo jo tusi deserve karde ho. 🧿🤞<br>
+
+Te haan, jadon tusi apde cute je natak karde ho na, mera sara gussa ik minute ch hi udd janda aa. 🤭❤️ Odo tusi ena pyaare lagde ho ki bas hassdi hi reh jandi aa.<br>
+
+Main chahundi aa ki thodi life ch hamesha khushiyan hon, te jado vi tusi kise mushkil ch hovo, tuhanu hamesha yaad rahe ki koi aa jo dilon tuhadi parwah karda aa. 🫂💖<br>
+
+Happy Birthday mera shone, mera bandar, mera favourite insaan. 🐒❤️
+
+Enjoy your day, smile a lot, te hamesha khush raho. Tuhadi smile bohot precious aa, is karke ajj pura din hassde rehna. 🥹🌸<br>
+
+Once again,<br>
+
+Happy Birthday Jass Rai ❤️🎂✨<br>
+
+Lots of love and best wishes always. 💖🫂<br>
+
+
+</div>
+
+</div>
+
+<button
+class="nextBtn"
+onclick="nextPage()">
+
+Open Gift Box 🎁
+
+</button>
+
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+
+window.addEventListener("load", () => {
+    bgMusic.currentTime = 6;
+    bgMusic.play();
+});
+
+/* MEMORY GAME */
+
+const emojis = [
+
+'❤️','❤️',
+'🎂','🎂',
+'🎁','🎁',
+'🌹','🌹',
+'🎈','🎈',
+'✨','✨',
+'🍫','🍫',
+'💖','💖'
+
+];
+
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+let matches = 0;
+
+emojis.sort(() => Math.random() - 0.5);
+
+const game =
+document.getElementById("game");
+
+emojis.forEach(emoji => {
+
+const card =
+document.createElement("div");
+
+card.classList.add("card");
+
+card.dataset.emoji = emoji;
+
+card.innerHTML = "❓";
+
+card.addEventListener(
+"click",
+flipCard
+);
+
+game.appendChild(card);
+
+});
+
+function flipCard(){
+
+if(lockBoard) return;
+
+if(this === firstCard) return;
+
+this.innerHTML =
+this.dataset.emoji;
+
+this.classList.add("flipped");
+
+if(!firstCard){
+
+firstCard = this;
+return;
+
+}
+
+secondCard = this;
+
+checkMatch();
+
+}
+
+function checkMatch(){
+
+if(
+firstCard.dataset.emoji ===
+secondCard.dataset.emoji
+){
+
+firstCard.classList.add("matched");
+secondCard.classList.add("matched");
+
+matches++;
+
+resetBoard();
+
+if(matches === 8){
+
+document
+.getElementById("status")
+.innerHTML =
+"🎉 Congratulations! You matched all cards ❤️";
+
+}
+
+}
+else{
+
+lockBoard = true;
+
+setTimeout(()=>{
+
+firstCard.innerHTML="❓";
+secondCard.innerHTML="❓";
+
+firstCard.classList.remove("flipped");
+secondCard.classList.remove("flipped");
+
+resetBoard();
+
+},1000);
+
+}
+
+}
+
+function resetBoard(){
+
+[firstCard,
+secondCard,
+lockBoard] =
+[null,null,false];
+
+}
+
+/* QUIZ */
+
+function correctAnswer(){
+
+document
+.getElementById("quizResult")
+.innerHTML =
+"✅ menu pta hi se tusi mera krde ho🥹lovee uu jnnuuu 💖";
+
+}
+
+function wrongAnswer(){
+
+document
+.getElementById("quizResult")
+.innerHTML =
+"❌ lgda thpdd aa di kaami aa thonu pitoo ge mera hathoo pyrr ni krde tusiii😠👊,dusri option choose kroo👀👊";
+
+}
+
+/* SURPRISE */
+
+function showSecret(){
+
+document
+.getElementById("secret")
+.style.display="block";
+
+}
+
+/* NEXT PAGE */
+
+function nextPage(){
+
+window.location.href=
+"celebration.html";
+
+}
+
+/* HEARTS */
+
+for(let i=0;i<70;i++){
+
+let heart =
+document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(15+Math.random()*20)+"px";
+
+heart.style.animationDuration=
+(5+Math.random()*10)+"s";
+
+document.body.appendChild(heart);
+
+}
+
+/* ROSES */
+
+setInterval(()=>{
+
+let petal=
+document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=
+Math.random()*100+"vw";
+
+petal.style.animationDuration=
+(6+Math.random()*4)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},10000);
+
+},500);
+
+</script>
+
+</body>
+</html>
