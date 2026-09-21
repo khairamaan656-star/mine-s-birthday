@@ -11,235 +11,165 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
 }
 
 body{
+    background:linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4,
+        #fbc2eb,
+        #a18cd1
+    );
 
-background:linear-gradient(
-135deg,
-#ff9a9e,
-#fad0c4,
-#fbc2eb,
-#a18cd1
-);
-
-min-height:100vh;
-overflow-x:hidden;
-padding:50px 20px;
+    min-height:100vh;
+    overflow-x:hidden;
+    padding:50px 20px;
 }
 
 h1{
-
-text-align:center;
-color:white;
-font-size:3rem;
-margin-bottom:60px;
-
+    text-align:center;
+    color:white;
+    font-size:3rem;
+    margin-bottom:60px;
 }
 
 .timeline{
-
-position:relative;
-max-width:1000px;
-margin:auto;
-
+    position:relative;
+    max-width:1000px;
+    margin:auto;
 }
 
 .timeline::after{
-
-content:"";
-
-position:absolute;
-
-width:6px;
-
-background:white;
-
-top:0;
-bottom:0;
-
-left:50%;
-
-margin-left:-3px;
-
+    content:"";
+    position:absolute;
+    width:6px;
+    background:white;
+    top:0;
+    bottom:0;
+    left:50%;
+    margin-left:-3px;
 }
 
 .memory{
-
-position:relative;
-
-width:50%;
-
-padding:20px 40px;
-
+    position:relative;
+    width:50%;
+    padding:20px 40px;
 }
 
 .memory.left{
-left:0;
+    left:0;
 }
 
 .memory.right{
-left:50%;
+    left:50%;
 }
 
 .content{
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(10px);
-
-padding:20px;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-
-animation:fadeUp 1s;
-
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    animation:fadeUp 1s;
 }
 
 .content img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-width:100%;
-height:250px;
-
-object-fit:cover;
-
-border-radius:15px;
-
-margin-bottom:15px;
-
+.content img:hover{
+    transform:scale(1.03);
 }
 
 .content h2{
-color:rgb(255, 255, 255);
-margin-bottom:10px;
+    color:white;
+    margin-bottom:10px;
 }
 
 .content p{
-color:rgb(255, 255, 255);
-line-height:2.5;
+    color:white;
+    line-height:2.5;
 }
-.date{
 
-color:white;
-font-weight:bold;
-margin-bottom:15px;
+.date{
+    color:white;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
 .memory::after{
-
-content:"❤️";
-
-position:absolute;
-
-top:30px;
-
-right:-15px;
-
-font-size:25px;
-
+    content:"❤️";
+    position:absolute;
+    top:30px;
+    right:-15px;
+    font-size:25px;
 }
 
 .memory.right::after{
-
-left:-15px;
-
+    left:-15px;
 }
 
 @keyframes fadeUp{
 
-from{
-opacity:0;
-transform:translateY(50px);
-}
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
 
-to{
-opacity:1;
-transform:translateY(0);
-}
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 
 }
 
 .next{
-
-display:block;
-
-margin:50px auto;
-
-padding:15px 40px;
-
-border:none;
-
-border-radius:40px;
-
-background:#ff4081;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
+    display:block;
+    margin:50px auto;
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    background:#ff4081;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
 }
 
 .heart{
-
-position:fixed;
-
-pointer-events:none;
-
-animation:floatHeart linear infinite;
-
+    position:fixed;
+    pointer-events:none;
+    animation:floatHeart linear infinite;
 }
 
 @keyframes floatHeart{
 
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
 
-20%{
-opacity:1;
-}
+    20%{
+        opacity:1;
+    }
 
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
-
-}
-
-@media(max-width:768px){
-
-.timeline::after{
-left:20px;
-}
-
-.memory{
-
-width:100%;
-
-padding-left:60px;
-
-padding-right:20px;
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
 
 }
 
-.memory.right{
-left:0;
-}
-
-.memory::after{
-left:5px;
-}
-
-}
 /* Image Popup */
 
 .popup{
@@ -270,13 +200,32 @@ left:5px;
     cursor:pointer;
 }
 
-.content img{
-    cursor:pointer;
-    transition:0.3s;
-}
+/* Mobile */
 
-.content img:hover{
-    transform:scale(1.03);
+@media(max-width:768px){
+
+    h1{
+        font-size:2rem;
+    }
+
+    .timeline::after{
+        left:20px;
+    }
+
+    .memory{
+        width:100%;
+        padding-left:60px;
+        padding-right:20px;
+    }
+
+    .memory.right{
+        left:0;
+    }
+
+    .memory::after{
+        left:5px;
+    }
+
 }
 
 </style>
@@ -284,178 +233,246 @@ left:5px;
 </head>
 
 <body>
-    <!-- Image Popup -->
+
+<!-- Image Popup -->
+
 <div id="imagePopup" class="popup">
+
     <span class="close">&times;</span>
+
     <img class="popup-img" id="popupImg">
+
 </div>
+
 
 <h1>OUR BEAUTIFUL JOURNEY ❤️</h1>
 
+
 <div class="timeline">
 
-<div class="memory left">
 
-<div class="content">
-
-<div class="date">
-📅 First Meeting
-</div>
-<audio id="bgMusic" autoplay loop>
-    <source src="./pyar bolda.mpeg"type="audio/mpeg">
-</audio>
-<div id="timestamp"></div>
-
-<img src="PHOTO.jpeg">
-
-<h2>WHERE IT ALL STARTED ❤️</h2>
-
-<p>
-This was the day everything changed.
-sab to sohna din jidn meri life di sab to special chij hoyi se🥹🤞.
-</p>
-
-</div>
-</div>
-
-<div class="memory right">
-
-<div class="content">
-
-<div class="date">
-📅 Favourite Moment
-</div>
-
-<img src="WhatsApp Image 2026-09-21 at 1.33.10 AM.jpeg">
-
-<h2>PURE HAPPINESS ❤️</h2>
-
-<p>
-jad tusi mera nl se oh moment bhot special hunde aa mera lyi puttu💖<br>mera nona baachaaa Love u mera bndrrr...
-</p>
-
-</div>
-
-</div>
+<!-- FIRST MEMORY -->
 
 <div class="memory left">
 
-<div class="content">
+    <div class="content">
 
-<div class="date">
-📅 Special Day
+        <div class="date">
+            📅 First Meeting
+        </div>
+
+        <img src="PHOTO.jpeg" alt="First Meeting">
+
+        <h2>WHERE IT ALL STARTED ❤️</h2>
+
+        <p>
+            This was the day everything changed.
+            sab to sohna din jidn meri life di sab to special chij hoyi se🥹🤞.
+        </p>
+
+    </div>
+
 </div>
 
-<img src="WhatsApp Image 2026-09-21 at 1.33.31 AM.jpeg>
 
-<h2>FOREVER MEMORY ❤️</h2>
-
-<p>
-har ik pal jo thode nal bitya oh me kde ni bhul skdi...<br> oo sab to shoniya yaadam ne meriya kakee😘👀.
-</p>
-
-</div>
-
-</div>
+<!-- SECOND MEMORY -->
 
 <div class="memory right">
 
-<div class="content">
+    <div class="content">
 
-<div class="date">
-📅 Today
+        <div class="date">
+            📅 Favourite Moment
+        </div>
+
+        <img src="WhatsApp Image 2026-09-21 at 1.33.10 AM.jpeg" 
+             alt="Favourite Moment">
+
+        <h2>PURE HAPPINESS ❤️</h2>
+
+        <p>
+            jad tusi mera nl se oh moment bhot special hunde aa mera lyi puttu💖
+            <br>
+            mera nona baachaaa Love u mera bndrrr...
+        </p>
+
+    </div>
+
 </div>
 
-<img src="how it's going.jpeg">
 
-<h2>HAPPY BIRTHDAY JASS ❤️</h2>
+<!-- THIRD MEMORY -->
 
-<p>
-May this year bring endless happiness,
-success and love into your life💖🪬<br>tusi hmesha khush rho te menu tng krde rho jnnuu😚✨...
-</p>
+<div class="memory left">
+
+    <div class="content">
+
+        <div class="date">
+            📅 Special Day
+        </div>
+
+        <!-- FIXED IMAGE ERROR HERE -->
+
+        <img src="WhatsApp Image 2026-09-21 at 1.33.31 AM.jpeg"
+             alt="Special Day">
+
+        <h2>FOREVER MEMORY ❤️</h2>
+
+        <p>
+            har ik pal jo thode nal bitya oh me kde ni bhul skdi...
+            <br>
+            oo sab to shoniya yaadam ne meriya kakee😘👀.
+        </p>
+
+    </div>
 
 </div>
 
-</div>
+
+<!-- FOURTH MEMORY -->
+
+<div class="memory right">
+
+    <div class="content">
+
+        <div class="date">
+            📅 Today
+        </div>
+
+        <img src="how it's going.jpeg" 
+             alt="Birthday">
+
+        <h2>HAPPY BIRTHDAY JASS ❤️</h2>
+
+        <p>
+            May this year bring endless happiness,
+            success and love into your life💖🪬
+            <br>
+            tusi hmesha khush rho te menu tng krde rho jnnuu😚✨...
+        </p>
+
+    </div>
 
 </div>
 
-<button
-class="next"
-onclick="nextPage()">
 
-OPEN LETTER ❤️
+</div>
 
+
+<!-- OPEN LETTER BUTTON -->
+
+<button class="next" onclick="nextPage()">
+    OPEN LETTER ❤️
 </button>
 
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgMusic" loop>
+    <source src="./pyar bolda.mpeg" type="audio/mpeg">
+</audio>
+
+
 <script>
-  const bgMusic = document.getElementById("bgMusic");
+
+/* Background Music */
+
+const bgMusic = document.getElementById("bgMusic");
 
 bgMusic.addEventListener("loadedmetadata", () => {
+
     bgMusic.currentTime = 110;
-    bgMusic.play().catch(()=>{});
+
 });
 
-window.addEventListener("click", () => {
-    bgMusic.currentTime = 110;
-    bgMusic.play();
-}, { once: true });
 
+document.addEventListener("click", () => {
+
+    bgMusic.play().catch(() => {});
+
+}, { once:true });
+
+
+/* Open Letter */
 
 function nextPage(){
 
-window.location.href=
-"letter.html";
+    window.location.href = "letter.html";
 
 }
 
-for(let i=0;i<60;i++){
 
-let heart=
-document.createElement("div");
+/* Floating Hearts */
 
-heart.className="heart";
+for(let i = 0; i < 60; i++){
 
-heart.innerHTML="❤️";
+    let heart = document.createElement("div");
 
-heart.style.left=
-Math.random()*100+"vw";
+    heart.className = "heart";
 
-heart.style.fontSize=
-(15+Math.random()*20)+"px";
+    heart.innerHTML = "❤️";
 
-heart.style.animationDuration=
-(5+Math.random()*10)+"s";
+    heart.style.left =
+        Math.random() * 100 + "vw";
 
-document.body.appendChild(heart);
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 10) + "s";
+
+    document.body.appendChild(heart);
 
 }
-// Image Viewer
 
-const images = document.querySelectorAll(".content img");
-const popup = document.getElementById("imagePopup");
-const popupImg = document.getElementById("popupImg");
-const closeBtn = document.querySelector(".close");
+
+/* Image Popup */
+
+const images =
+    document.querySelectorAll(".content img");
+
+const popup =
+    document.getElementById("imagePopup");
+
+const popupImg =
+    document.getElementById("popupImg");
+
+const closeBtn =
+    document.querySelector(".close");
+
 
 images.forEach(img => {
+
     img.addEventListener("click", () => {
+
         popup.style.display = "flex";
+
         popupImg.src = img.src;
+
     });
+
 });
+
 
 closeBtn.addEventListener("click", () => {
+
     popup.style.display = "none";
+
 });
 
+
 popup.addEventListener("click", (e) => {
+
     if(e.target === popup){
+
         popup.style.display = "none";
+
     }
+
 });
 
 </script>
 
 </body>
+
 </html>
